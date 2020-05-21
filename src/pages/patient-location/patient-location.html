@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="steelblue2">
+    <ion-buttons start>
+       <button ion-button icon-only menuToggle>
+         <ion-icon name="menu"></ion-icon>
+       </button>
+      </ion-buttons>
+    <ion-title style="font-size: x-large;">
+      Patient Location
+    </ion-title>
+  </ion-navbar>
+
+  <components-timer></components-timer>
+
+</ion-header>
+<ion-content no-bounce padding  style="height: 100vh;"id="page1">
+  <h3 id="lastKnownWell-heading5" style="color:#000000;font-weight:400;font-size: xx-large;">
+    Where is the patient located?
+  </h3>
+  <div style="height:5vh;"></div>
+  <button type ="button"  id="patientLocation-button1"  ion-button color="steelblue1"  fill="outline" block on-click="goToLastKnownWell()" block on-click="setCurrentPosition()"> 
+    CHOOSE YOUR LOCATION
+  </button>
+  <div style="height:3vh;"></div>
+<p style="text-align: center;font-size: large">OR</p>
+<div style="height:3vh;"></div>
+  <ion-input type="text" [(ngModel)]="searchterm" (keyup)="search($event)" autocapitalize="off" class="input" style="font-size: large;" placeholder="Search By City or Centre" id="txtHome" required style = "border: solid black 3px;"></ion-input>
+  <div style="height:5vh;"></div>
+  <div *ngFor="let health_centres of Medical_Centers">
+<!--Tried the height to fix it probably does nothing and no screen size is that small-->
+    <button type ="button" padding  id="patientLocation-button1" text-wrap style="font-size: auto;" ion-button color="steelblue1"  fill="outline"  block on-click="getLatLng(health_centres.name)" block on-click="goToLastKnownWell(health_centres.bTelestroke,health_centres.lat,health_centres.lng)" >
+      <!--{{health_centres.address}}-->
+      <p>
+        {{health_centres.name}}:  {{health_centres.city}}
+        
+      </p>
+    </button>
+  </div>
+  <div *ngIf="Medical_Centers?.length < 1">
+    <hr>
+    <p style="font-size: large;">
+      No results
+    </p>
+  </div>
+
+  <!--<div class="weather" *ngIf="weather">
+    <div>   
+       
+        <p class="big">{{weather.current.temp_c}}°</p>
+        <p><strong>{{weather.current.weather_descriptions}}</strong></p> 
+    </div>
+    <div>
+        
+        <p>{{weather.location.name}}, <span>{{weather.location.country}}</span> </p>
+        <p>{{weather.location.localtime}}</p>
+    </div>  
+</div>-->
+ 
+  
+</ion-content>
+
