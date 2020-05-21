@@ -45,18 +45,11 @@ import { RoutingProvider } from '../providers/routing';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC2GRIwOatzPmiamkpv3znVK8hi9g4lGoU',
+       // retracted for privacy reasons
       libraries: ['geometry','places']
     }),
      AngularFireModule.initializeApp({
-     apiKey: "AIzaSyB6NmY0iFundTq06rk3mpc5Wk7LwbWdUw0",
-     authDomain: "degree-project-database.firebaseapp.com",
-     databaseURL: "https://degree-project-database.firebaseio.com",
-     projectId: "degree-project-database",
-     storageBucket: "degree-project-database.appspot.com",
-     messagingSenderId: "527765428487",
-     appId: "1:527765428487:web:57170a630f65e0bc8b4da2",
-     measurementId: "G-ML39B2PXC4"
+     // retracted for privacy reasons
      }),
      AngularFireDatabaseModule,
      AngularFireAuthModule,
